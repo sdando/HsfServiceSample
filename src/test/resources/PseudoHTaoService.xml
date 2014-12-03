@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+<!-- <bean id="pseudoHTaoServiceImpl" class="com.taobao.hsf.test.service.PseudoHTaoServiceImpl"></bean>
+  <bean id="serviceProvider" class="com.taobao.hsf.app.spring.util.HSFSpringProviderBean" init-method="init">
+  	<property name="serviceInterface">
+  		<value>com.taobao.hsf.test.service.PseudoHTaoService</value></property>
+  	<property name="target">
+  		<ref bean="pseudoHTaoServiceImpl"></ref></property>
+  	<property name="serviceName">
+  		<value>PseudoHTaoService</value></property>   
+  	<property name="serviceVersion">
+  		<value>1.0.0.daily</value></property>
+  </bean>
+  -->
+  <bean id="pseudoHTaoService" class="com.taobao.hsf.app.spring.util.HSFSpringConsumerBean" init-method="init">
+    <property name="interfaceName">
+      <value>com.taobao.hsf.test.service.PseudoHTaoService</value>
+    </property>
+    <property name="version">
+      <value>1.0.0.daily</value>
+    </property>
+  </bean>
+   <bean id="cartService" class="com.taobao.hsf.app.spring.util.HSFSpringConsumerBean" init-method="init">
+    <property name="interfaceName">
+      <value>com.taobao.carts.service.CartWapService</value>
+    </property>
+    <property name="version">
+      <value>1.0.0.daily</value>
+    </property>
+  </bean>
+      <bean id="uicReadService" class="com.taobao.hsf.app.spring.util.HSFSpringConsumerBean" init-method="init">
+        <property name="interfaceName" value="com.taobao.uic.common.service.userinfo.UicReadService"/>
+        <property name="version" value="1.0.0.daily"/>
+    </bean>
+</beans>
